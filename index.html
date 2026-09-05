@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Ayush Kumar Jha — Cybersecurity & Web Developer</title>
+  <meta name="title" content="Ayush Kumar Jha — Cybersecurity & Web Developer">
+  <meta name="description"
+    content="Personal portfolio of Ayush Kumar Jha, a Cybersecurity student and web developer specializing in secure application design, penetration testing, and Go/Rust development.">
+  <meta name="keywords"
+    content="Cybersecurity Student, Web Developer, Secure Coding, Pentesting, OWASP, Go, Rust, Bengaluru, Ayush Kumar Jha">
+  <meta name="author" content="Ayush Kumar Jha">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aaravmehta.security/"> <!-- REPLACE with your live URL -->
+  <meta property="og:title" content="Ayush Kumar Jha — Cybersecurity & Web Developer">
+  <meta property="og:description"
+    content="Personal portfolio of Ayush Kumar Jha, a Cybersecurity student and web developer specializing in secure application design, penetration testing, and Go/Rust development.">
+  <meta property="og:image" content="https://aaravmehta.security/assets/og-image.jpg">
+  <!-- REPLACE with your OG image path -->
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://aaravmehta.security/"> <!-- REPLACE with your live URL -->
+  <meta property="twitter:title" content="Ayush Kumar Jha — Cybersecurity & Web Developer">
+  <meta property="twitter:description"
+    content="Personal portfolio of Ayush Kumar Jha, a Cybersecurity student and web developer specializing in secure application design, penetration testing, and Go/Rust development.">
+  <meta property="twitter:image" content="https://aaravmehta.security/assets/og-image.jpg">
+  <!-- REPLACE with your OG image path -->
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
+  <!-- <link rel="icon" type="image/png" href="assets/favicon.png"> -->
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container container">
+      <a href="#" class="logo">A.J.</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="work.html" class="nav-link">Work</a></li>
+          <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="contact.html" class="nav-link">Connect</a></li>
+          <li><a href="assets/resume.pdf" class="nav-link resume-link" target="_blank"
+              rel="noopener noreferrer">Resume</a></li> <!-- REPLACE with your resume link -->
+        </ul>
+      </nav>
+      <!-- Theme Switcher -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" type="button">
+        <span class="theme-toggle-label">Light</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero-section container">
+      <div class="hero-grid">
+        <div class="hero-title-area">
+          <h1 class="hero-headline">
+            Securing systems, analyzing web applications, and building robust software.
+          </h1>
+        </div>
+        <div class="hero-details-area">
+          <div class="hero-meta-item">
+            <span class="meta-label">Currently</span>
+            <p class="meta-value">B.Tech Cyber Security (IBM) Student at Lamrin Tech Skill University</p>
+          </div>
+          <div class="hero-meta-item">
+            <span class="meta-label">Location</span>
+            <p class="meta-value">Chandigarh, India</p>
+          </div>
+          <div class="hero-meta-item">
+            <span class="meta-label">Local Time</span>
+            <p class="meta-value" id="localTime">00:00:00 GMT</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section container section-padding">
+      <div class="about-grid">
+        <div class="about-intro">
+          <span class="section-label">About</span>
+          <h2 class="about-headline">Bridging the gap between secure design and clean development.</h2>
+          <div class="about-image-wrapper">
+            <img src="assets/profile.png" alt="Ayush Kumar Jha">
+          </div>
+
+        </div>
+        <div class="about-body">
+          <p>
+            My name is Ayush Kumar Jha, and I am currently pursuing a B.Tech in Cyber Security (IBM) at Lamrin Tech
+            Skill University.
+          </p>
+          <p>
+            I build systems that work efficiently and defend themselves. As a B.Tech Cyber Security (IBM) student at
+            Lamrin Tech Skill University, I believe that building secure software is not an afterthought, but a core
+            architectural requirement.
+          </p>
+          <p>
+            My background combines full-stack web application development with hands-on research in application
+            security, penetration testing, cryptographical mechanics, and SOC operations (SIEM/SOAR). I enjoy building
+            things (using TypeScript and Python) and testing their boundaries by modeling threat vectors and analyzing
+            software configurations.
+          </p>
+          <p>
+            Outside of university assignments, you will find me practicing penetration testing labs on HackTheBox,
+            reviewing CVE databases, studying malware analysis blogs, or developing helper scripts for automated
+            security audits.
+          </p>
+          <div style="margin-top: var(--spacing-md); text-align: right;">
+            <a href="about.html" class="inline-link" style="font-family: var(--font-mono); font-size: 0.9rem;">More
+              about me →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technologies & Tools Section -->
+    <section class="tech-section container section-padding">
+      <div class="section-header">
+        <span class="section-label">Technologies & Tools</span>
+        <h2 class="section-title">Stack I work with.</h2>
+      </div>
+
+      <div class="logo-carousel">
+        <!-- Row 1 -->
+        <div class="logo-row">
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/javascript/default.svg" alt="JavaScript" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/typescript/default.svg" alt="TypeScript" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="Python" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/cplusplus/default.svg" alt="C++" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="React" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/nextdotjs/default.svg" alt="Next.js" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/tailwindcss/default.svg" alt="Tailwind CSS" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/html5/default.svg" alt="HTML5" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/css3/default.svg" alt="CSS3" class="tech-logo" />
+          <!-- Duplicate for seamless loop -->
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/javascript/default.svg" alt="JavaScript" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/typescript/default.svg" alt="TypeScript" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="Python" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/cplusplus/default.svg" alt="C++" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="React" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/nextdotjs/default.svg" alt="Next.js" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/tailwindcss/default.svg" alt="Tailwind CSS" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/html5/default.svg" alt="HTML5" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/css3/default.svg" alt="CSS3" class="tech-logo" />
+        </div>
+
+        <!-- Row 2 -->
+        <div class="logo-row">
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/docker/default.svg" alt="Docker" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/git/default.svg" alt="Git" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/github/default.svg" alt="GitHub" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/linux/default.svg" alt="Linux" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/postgresql/default.svg" alt="PostgreSQL" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/sqlite/default.svg" alt="SQLite" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/visualstudiocode/default.svg" alt="VS Code" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/wireshark/default.svg" alt="Wireshark" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/gnubash/default.svg" alt="Bash" class="tech-logo" />
+          <!-- Duplicate for seamless loop -->
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/docker/default.svg" alt="Docker" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/git/default.svg" alt="Git" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/github/default.svg" alt="GitHub" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/linux/default.svg" alt="Linux" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/postgresql/default.svg" alt="PostgreSQL" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/sqlite/default.svg" alt="SQLite" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/visualstudiocode/default.svg" alt="VS Code" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/wireshark/default.svg" alt="Wireshark" class="tech-logo" />
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/gnubash/default.svg" alt="Bash" class="tech-logo" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Work Section -->
+    <section id="work" class="work-section container section-padding">
+      <div class="section-header">
+        <span class="section-label">Selected Work</span>
+        <h2 class="section-title">Projects exploring security and scale.</h2>
+      </div>
+
+      <div class="projects-list">
+
+        <!-- Project 1 -->
+        <article class="project-item">
+          <div class="project-meta">
+            <span class="project-number">01</span>
+            <h3 class="project-name">WIRIDS</h3>
+            <span class="project-year">2026</span>
+            <div class="project-stack">Python / Playwright / Gemini AI</div>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              An autonomous web defacement detection and incident response system leveraging computer vision,
+              Playwright, and Gemini AI to classify intrusions.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/ayushjha-dev/WIRIDS" target="_blank" rel="noopener noreferrer"
+                class="project-link">
+                <i data-lucide="github"></i> Source Code
+              </a>
+              <a href="projects/wirids.html" class="project-link">
+                <i data-lucide="book-open"></i> Read Case Study
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-item">
+          <div class="project-meta">
+            <span class="project-number">02</span>
+            <h3 class="project-name">ilo</h3>
+            <span class="project-year">2026</span>
+            <div class="project-stack">Next.js 16 / React 19 / Web Crypto API</div>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              A zero-knowledge, single-user cloud password manager securing credentials fully in-browser, preventing decryption even under database compromise.
+            </p>
+            <div class="project-links">
+              <a href="https://silo-pink.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                <i data-lucide="external-link"></i> Live Demo
+              </a>
+              <a href="projects/ilo.html" class="project-link">
+                <i data-lucide="book-open"></i> Read Case Study
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-item">
+          <div class="project-meta">
+            <span class="project-number">03</span>
+            <h3 class="project-name">OpenEnv Email Triage</h3>
+            <span class="project-year">2026</span>
+            <div class="project-stack">Python / OpenAI / Agent Evaluation</div>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              An OpenEnv-compatible AI triage platform designed to benchmark autonomous agents on inbox management through workflows and reward learning.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/ayushjha-dev/openenv-email-triage" target="_blank" rel="noopener noreferrer"
+                class="project-link">
+                <i data-lucide="github"></i> Source Code
+              </a>
+              <a href="projects/openenv-email-triage.html" class="project-link">
+                <i data-lucide="book-open"></i> Read Case Study
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-item">
+          <div class="project-meta">
+            <span class="project-number">04</span>
+            <h3 class="project-name">Skillmetter</h3>
+            <span class="project-year">2025</span>
+            <div class="project-stack">React / TypeScript / Tailwind</div>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              A TryHackMe profile comparison platform delivering domain skill analysis, performance insights, rankings, and interactive data metrics.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/ayushjha-dev/Skillmetter" target="_blank" rel="noopener noreferrer"
+                class="project-link">
+                <i data-lucide="github"></i> Source Code
+              </a>
+              <a href="https://skillm.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                <i data-lucide="external-link"></i> Live Demo
+              </a>
+              <a href="projects/skillmetter.html" class="project-link">
+                <i data-lucide="book-open"></i> Read Case Study
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div style="margin-top: var(--spacing-md); text-align: right;">
+        <a href="work.html" class="inline-link" style="font-family: var(--font-mono); font-size: 0.9rem;">View all work
+          →</a>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="experience-section container section-padding">
+      <div class="section-header">
+        <span class="section-label">Certifications</span>
+        <h2 class="section-title">Industry credentials and specialized training.</h2>
+      </div>
+
+      <div class="timeline-list">
+
+        <!-- Certification 1 -->
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <span>Dec 2025</span>
+          </div>
+          <div class="timeline-details">
+            <div class="timeline-role-info">
+              <h3 class="timeline-role">Certified Red Team Operations Management (CRTOM)</h3>
+              <span class="timeline-company">Red Team Specialist Certification</span>
+            </div>
+            <p class="timeline-description">
+              Advanced security certification focused on adversary simulation, operational management, threat
+              containment, and coordination of red team engagements.
+            </p>
+            <p style="margin-top: 8px;">
+              <a href="#" class="inline-link" style="font-family: var(--font-mono); font-size: 0.8rem;" target="_blank"
+                rel="noopener noreferrer">View Certificate →</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Certification 2 -->
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <span>Dec 2025</span>
+          </div>
+          <div class="timeline-details">
+            <div class="timeline-role-info">
+              <h3 class="timeline-role">Certified Web 3.0 Security Professional</h3>
+              <span class="timeline-company">Web3/Blockchain Security Certification</span>
+            </div>
+            <p class="timeline-description">
+              Specialized training validating core competencies in smart contract auditing, blockchain vulnerability
+              assessment, and decentralized protocol defense.
+            </p>
+            <p style="margin-top: 8px;">
+              <a href="#" class="inline-link" style="font-family: var(--font-mono); font-size: 0.8rem;" target="_blank"
+                rel="noopener noreferrer">View Certificate →</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Certification 3 -->
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <span>2025</span>
+          </div>
+          <div class="timeline-details">
+            <div class="timeline-role-info">
+              <h3 class="timeline-role">Web Developer Certification (Level 4, 390 Hrs)</h3>
+              <span class="timeline-company">Lamrin Tech Skills University Punjab & NCVET</span>
+            </div>
+            <p class="timeline-description">
+              Comprehensive Web Development program recognized by the IT-ITeS Sector Skill Council, validating skills in
+              full-stack architecture and application engineering.
+            </p>
+            <p style="margin-top: 8px;">
+              <a href="#" class="inline-link" style="font-family: var(--font-mono); font-size: 0.8rem;" target="_blank"
+                rel="noopener noreferrer">View Certificate →</a>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top: var(--spacing-md); text-align: right;">
+        <a href="certifications.html" class="inline-link" style="font-family: var(--font-mono); font-size: 0.9rem;">See
+          all certifications →</a>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section container section-padding">
+      <div class="section-header">
+        <span class="section-label">Experience</span>
+        <h2 class="section-title">Professional milestones and contributions.</h2>
+      </div>
+
+      <div class="timeline-list">
+
+        <!-- Experience 1 -->
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <span>2026 - Present</span>
+          </div>
+          <div class="timeline-details">
+            <div class="timeline-role-info">
+              <h3 class="timeline-role">Volunteer Videographer</h3>
+              <span class="timeline-company">Vividh — Social Media Club, Lamrin Tech Skills University</span>
+            </div>
+            <p class="timeline-description">
+              Volunteering as a videographer for Vividh, the official Social Media Club of Lamrin Tech Skills University. Shooting and editing video coverage of campus events, club activities, and promotional content.
+            </p>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <span>Jan 2026 - Present</span>
+          </div>
+          <div class="timeline-details">
+            <div class="timeline-role-info">
+              <h3 class="timeline-role">Member</h3>
+              <span class="timeline-company">GDG Cloud Chandigarh — Part-time</span>
+            </div>
+            <p class="timeline-description">
+              Participating in cloud developer community sessions, organizing technical study groups, and engaging with peers on modern Google Cloud Platform (GCP) technologies.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top: var(--spacing-md); text-align: right;">
+        <a href="experience.html" class="inline-link" style="font-family: var(--font-mono); font-size: 0.9rem;">View all experience →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer / Contact Section -->
+  <footer id="contact" class="footer container">
+    <div class="footer-grid">
+      <div class="footer-cta">
+        <span class="section-label">Connect</span>
+        <h2 class="footer-headline">Let's secure the web.</h2>
+        <a href="mailto:ayushkrjha85@gmail.com" class="email-link">ayushkrjha85@gmail.com</a>
+        <!-- REPLACE with your email -->
+        <p class="form-notice">Need a contact form? Integrate <a href="https://formspree.io" target="_blank"
+            rel="noopener noreferrer" class="inline-link">Formspree</a> or <a href="https://www.emailjs.com"
+            target="_blank" rel="noopener noreferrer" class="inline-link">EmailJS</a> to plug and play static mailer
+          endpoints.</p>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="social-links">
+          <a href="https://github.com/ayushjha-dev" target="_blank" rel="noopener noreferrer" class="social-link"
+            aria-label="GitHub">
+            <i data-lucide="github"></i> <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/ayush-kumar-jha-058b64323/" target="_blank" rel="noopener noreferrer"
+            class="social-link" aria-label="LinkedIn">
+            <i data-lucide="linkedin"></i> <span>LinkedIn</span>
+          </a>
+          <a href="https://tryhackme.com/p/Mr.Xploit" target="_blank" rel="noopener noreferrer" class="social-link"
+            aria-label="TryHackMe">
+            <i data-lucide="TryHackMe"></i> <span>TryHackMe</span>
+          </a>
+          <a href="https://x.com/ayush_kumar_jha" target="_blank" rel="noopener noreferrer" class="social-link"
+            aria-label="X (Twitter)">
+            <i data-lucide="twitter"></i> <span>Twitter</span>
+          </a>
+        </div>
+        <p class="copyright">
+          &copy; <span id="currentYear">2026</span> Ayush Kumar Jha. Designed for restraint.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+
+</html>

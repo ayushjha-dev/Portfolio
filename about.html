@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Ayush Kumar Jha</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container container">
+      <a href="index.html" class="logo">A.J.</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="work.html" class="nav-link">Work</a></li>
+          <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="contact.html" class="nav-link">Connect</a></li>
+          <li><a href="assets/resume.pdf" class="nav-link resume-link" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        </ul>
+      </nav>
+      <!-- Theme Switcher -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" type="button">
+        <span class="theme-toggle-label">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content container section-padding">
+    <div class="about-grid" style="border-top: none; padding-top: 0;">
+      <div class="about-intro">
+        <span class="section-label">About Me</span>
+        <h1 class="about-headline" style="font-size: 3rem;">Bridging the gap between secure design and clean development.</h1>
+        <div class="about-image-wrapper">
+          <img src="assets/profile.png" alt="Ayush Kumar Jha">
+        </div>
+
+      </div>
+      <div class="about-body" style="padding-top: var(--spacing-sm);">
+        <p>
+          My name is Ayush Kumar Jha, and I am currently pursuing a B.Tech in Cyber Security (IBM) at Lamrin Tech Skill University.
+        </p>
+        <p>
+          I build systems that work efficiently and defend themselves. As a B.Tech Cyber Security (IBM) student at Lamrin Tech Skill University, I believe that building secure software is not an afterthought, but a core architectural requirement.
+        </p>
+        <p>
+          My background combines full-stack web application development with hands-on research in application security, penetration testing, cryptographical mechanics, and SOC operations (SIEM/SOAR). I enjoy building things (using TypeScript and Python) and testing their boundaries by modeling threat vectors and analyzing software configurations.
+        </p>
+        <p>
+          Outside of university assignments, you will find me practicing penetration testing labs on HackTheBox, reviewing CVE databases, studying malware analysis blogs, or developing helper scripts for automated security audits.
+        </p>
+      </div>
+    </div>
+
+
+
+    <!-- Achievements Section -->
+    <div class="achievements-section" style="margin-top: var(--spacing-xl);">
+      <div class="section-header">
+        <span class="section-label">Achievements</span>
+        <h2 class="section-title">Milestones & Recognition</h2>
+      </div>
+      <div class="timeline-list">
+        
+        <!-- TryHackMe Achievement (live badge — auto-updates daily) -->
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <span>2026</span>
+          </div>
+          <div class="timeline-details">
+            <div class="timeline-role-info">
+              <h3 class="timeline-role">Top 2% Worldwide Ranking</h3>
+              <span class="timeline-company">TryHackMe Platform</span>
+            </div>
+            <p class="timeline-description">
+              Ranked in the top 2% of users globally with a continuous hack-and-learn streak. Live stats below update daily.
+            </p>
+            <p style="margin-top: 12px;">
+              <a href="https://tryhackme.com/p/Mr.Xploit" target="_blank" rel="noopener noreferrer">
+                <img src="https://tryhackme-badges.s3.amazonaws.com/Mr.Xploit.png" alt="TryHackMe badge for Mr.Xploit — live rank, streak and rooms completed" style="max-width: 100%; border-radius: 6px;">
+              </a>
+            </p>
+            <p style="margin-top: 8px;">
+              <a href="https://tryhackme.com/p/Mr.Xploit" class="inline-link" style="font-family: var(--font-mono); font-size: 0.8rem;" target="_blank" rel="noopener noreferrer">View TryHackMe Profile →</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Amroha Police Internship Achievement -->
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <span>2026</span>
+          </div>
+          <div class="timeline-details">
+            <div class="timeline-role-info">
+              <h3 class="timeline-role">Cyber Security Intern</h3>
+              <span class="timeline-company">Amroha Police Department</span>
+            </div>
+            <p class="timeline-description">
+              Secured the opportunity to join the Amroha Police as an intern, assisting in cybersecurity operations, threat analysis, and awareness initiatives.
+            </p>
+          </div>
+        </div>
+
+        <!-- Ministry of Defence Quiz Achievement -->
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <span>2026</span>
+          </div>
+          <div class="timeline-details">
+            <div class="timeline-role-info">
+              <h3 class="timeline-role">All India Rank 20 — National Security Quiz Series</h3>
+              <span class="timeline-company">Ministry of Defence & MyGov India</span>
+            </div>
+            <p class="timeline-description">
+              Secured 20th place nationwide out of 143,000+ participants. Awarded a ₹5,000 cash prize and two VIP tickets to the 2026 Republic Day Parade.
+            </p>
+          </div>
+        </div>
+
+        <!-- Kotothon Hackathon Achievement -->
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <span>2026</span>
+          </div>
+          <div class="timeline-details">
+            <div class="timeline-role-info">
+              <h3 class="timeline-role">Runner Up (2nd Position)</h3>
+              <span class="timeline-company">Kotothon Hackathon</span>
+            </div>
+            <p class="timeline-description">
+              Collaborated with teammates to build and pitch a high-performance solution, securing the 2nd position in the competition.
+            </p>
+          </div>
+        </div>
+        <!-- University Project Exhibition Achievement -->
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <span>2025</span>
+          </div>
+          <div class="timeline-details">
+            <div class="timeline-role-info">
+              <h3 class="timeline-role">2nd Position — Project Exhibition</h3>
+              <span class="timeline-company">University Exhibition (Engineers' Day 2025)</span>
+            </div>
+            <p class="timeline-description">
+              Secured 2nd place in the university-wide project exhibition on Engineers' Day, presenting an innovative software engineering or security solution.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer container">
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; <span id="currentYear">2026</span> Ayush Kumar Jha. Designed for restraint.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+</html>

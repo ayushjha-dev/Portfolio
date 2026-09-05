@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achieve — Ayush Kumar Jha</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container container">
+      <a href="../index.html" class="logo">A.J.</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="../about.html" class="nav-link">About</a></li>
+          <li><a href="../work.html" class="nav-link">Work</a></li>
+          <li><a href="../certifications.html" class="nav-link">Certifications</a></li>
+          <li><a href="../experience.html" class="nav-link">Experience</a></li>
+          <li><a href="../contact.html" class="nav-link">Connect</a></li>
+          <li><a href="../assets/resume.pdf" class="nav-link resume-link" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        </ul>
+      </nav>
+      <!-- Theme Switcher -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" type="button">
+        <span class="theme-toggle-label">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content detail-layout container">
+    <!-- Back Button -->
+    <a href="../work.html" class="back-link">
+      <i data-lucide="arrow-left"></i> Back to Work
+    </a>
+
+    <!-- Detail Grid -->
+    <div class="detail-grid">
+      <!-- Sidebar -->
+      <aside class="detail-sidebar">
+        <div class="detail-meta-list">
+          <div class="detail-meta-item">
+            <span class="meta-label">Year</span>
+            <p class="meta-value">2025</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Focus</span>
+            <p class="meta-value">Document Archival & Short-lived Access Tokens</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Stack</span>
+            <p class="meta-value">Node.js / Express / Signed URLs / Custom CSS</p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Content -->
+      <article class="detail-content">
+        <header class="detail-header">
+          <h1 class="detail-title">Achieve</h1>
+          <p class="detail-subtitle">A secure credential archive featuring a premium print-editorial aesthetic.</p>
+        </header>
+
+        <div class="detail-body">
+          <h3>Overview</h3>
+          <p>
+            Achieve is a single-user credential and document archive designed to store sensitive certificates, licenses, and passwords. It integrates strong middleware validation with a warm, alabaster-themed layout emphasizing editorial typography and minimalist restraint.
+          </p>
+
+          <h3>Security Architecture</h3>
+          <p>
+            Rather than serving files statically, Achieve safeguards stored documents by preventing direct path traversal and hotlinking:
+          </p>
+          <ul>
+            <li><strong>Middleware Validation</strong>: Restricts access via secure HttpOnly cookie checks, requiring multi-layered token authorization.</li>
+            <li><strong>Short-Lived Signed URLs</strong>: Restricts asset downloads to temporary 60-second signed URLs generated on-demand, preventing exposure of the raw storage buckets.</li>
+            <li><strong>Isolated Environment</strong>: Uses isolated document paths inside restricted folders.</li>
+          </ul>
+
+          <blockquote>
+            "Security and elegant aesthetics don't have to conflict. Achieve demonstrates that highly secure architectures can match premium, editorial visual designs."
+          </blockquote>
+
+          <h3>Design & Palette</h3>
+          <p>
+            The interface avoids typical administrative dashboards, opting for a clean print aesthetic:
+          </p>
+          <ul>
+            <li><strong>Palette</strong>: Pale alabaster backgrounds, charcoal text, and minimal structural borders.</li>
+            <li><strong>Typography</strong>: High-contrast serif headings paired with clean monospace labels, emphasizing document names and metadata.</li>
+          </ul>
+
+          <h3>Implementation Highlight</h3>
+          <p>
+            The following Node.js snippet shows the signed URL generation middleware that signs files on the fly for restricted 60-second client sessions:
+          </p>
+
+          <div class="code-block-wrapper">
+            <div class="code-header">
+              <span class="code-lang">Node.js</span>
+            </div>
+            <pre class="code-content"><code class="language-javascript">import crypto from 'crypto';
+
+export function generateExpiryUrl(fileKey, secretKey, expirySeconds = 60) {
+  const expiresAt = Math.floor(Date.now() / 1000) + expirySeconds;
+  
+  // Create cryptographic HMAC verification hash
+  const signatureData = `${fileKey}:${expiresAt}`;
+  const hmac = crypto.createHmac('sha256', secretKey);
+  hmac.update(signatureData);
+  const signature = hmac.digest('hex');
+
+  // Return the temporary URL containing authentication parameters
+  return `/storage/retrieve?file=${encodeURIComponent(fileKey)}&expires=${expiresAt}&sig=${signature}`;
+}</code></pre>
+          </div>
+
+          <h3>Learning Outcomes</h3>
+          <p>
+            Building Achieve helped me refine security middleware, control file-system lifecycles, and explore premium typography and custom CSS spacing patterns.
+          </p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer container">
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2026 Ayush Kumar Jha. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Lucide CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Main Script -->
+  <script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quietude — Ayush Kumar Jha</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container container">
+      <a href="../index.html" class="logo">A.J.</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="../about.html" class="nav-link">About</a></li>
+          <li><a href="../work.html" class="nav-link">Work</a></li>
+          <li><a href="../certifications.html" class="nav-link">Certifications</a></li>
+          <li><a href="../experience.html" class="nav-link">Experience</a></li>
+          <li><a href="../contact.html" class="nav-link">Connect</a></li>
+          <li><a href="../assets/resume.pdf" class="nav-link resume-link" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        </ul>
+      </nav>
+      <!-- Theme Switcher -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" type="button">
+        <span class="theme-toggle-label">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content detail-layout container">
+    <!-- Back Button -->
+    <a href="../work.html" class="back-link">
+      <i data-lucide="arrow-left"></i> Back to Work
+    </a>
+
+    <!-- Detail Grid -->
+    <div class="detail-grid">
+      <!-- Sidebar -->
+      <aside class="detail-sidebar">
+        <div class="detail-meta-list">
+          <div class="detail-meta-item">
+            <span class="meta-label">Year</span>
+            <p class="meta-value">2025</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Focus</span>
+            <p class="meta-value">Ambient Focus & Minimal Writing Space</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Stack</span>
+            <p class="meta-value">TypeScript / React / Web Audio API</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Code base</span>
+            <p class="meta-value">
+              <a href="https://github.com/ayushjha-dev/quietude" target="_blank" rel="noopener noreferrer" class="inline-link">
+                GitHub Repository
+              </a>
+            </p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Live Link</span>
+            <p class="meta-value">
+              <a href="https://quietude-one.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-link">
+                quietude-one.vercel.app
+              </a>
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Content -->
+      <article class="detail-content">
+        <header class="detail-header">
+          <h1 class="detail-title">Quietude</h1>
+          <p class="detail-subtitle">Minimalist, ambient writing space built for cognitive focus.</p>
+        </header>
+
+        <div class="detail-body">
+          <h3>Overview</h3>
+          <p>
+            Quietude combines procedural audio synthesis with a distraction-free writing environment to help developers and writers optimize flow state sessions.
+          </p>
+
+          <h3>The Challenge</h3>
+          <p>
+            Most modern text editors and focus spaces are cluttered with sidebars, sync warnings, and configuration tabs that break cognitive concentration. The objective was to design a clean editing interface that runs client-side and helps users maintain focus.
+          </p>
+
+          <blockquote>
+            "Clean interfaces encourage deep focus. By stripping away standard configuration menus, we created an editor that gets out of the user's way."
+          </blockquote>
+
+          <h3>Technical Architecture</h3>
+          <p>
+            Quietude is built as a single-page web application leveraging:
+          </p>
+          <ul>
+            <li><strong>Web Audio Engine</strong>: Generates real-time soundscapes (white/brown noise, binaural beats) procedurally, avoiding large static audio files.</li>
+            <li><strong>Focus DOM state</strong>: Monitored via writing state listeners, hiding controls and parameters as soon as typing begins.</li>
+            <li><strong>Client Storage</strong>: Keeps writing logs safe locally in the browser's `localStorage` to safeguard files without remote logins.</li>
+          </ul>
+
+          <h3>Implementation Highlight</h3>
+          <p>
+            This TypeScript snippet shows how a Web Audio API context creates and connects a procedural brown noise generator node:
+          </p>
+
+          <div class="code-block-wrapper">
+            <div class="code-header">
+              <span class="code-lang">TypeScript</span>
+            </div>
+            <pre class="code-content"><code class="language-typescript">export function createBrownNoiseNode(ctx: AudioContext): AudioNode {
+    const bufferSize = 2 * ctx.sampleRate;
+    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+    const output = noiseBuffer.getChannelData(0);
+    
+    let lastOut = 0.0;
+    for (let i = 0; i < bufferSize; i++) {
+        const white = Math.random() * 2 - 1;
+        // Apply brown noise filter algorithm
+        output[i] = (lastOut + (0.02 * white)) / 1.02;
+        lastOut = output[i];
+        output[i] *= 3.5; // Compensate loss
+    }
+    
+    const noiseNode = ctx.createBufferSource();
+    noiseNode.buffer = noiseBuffer;
+    noiseNode.loop = true;
+    return noiseNode;
+}</code></pre>
+          </div>
+
+          <h3>Learning Outcomes</h3>
+          <p>
+            Developing Quietude improved my skills in handling audio node graphs in the browser, configuring responsive interfaces, and managing client-side state. It taught me how to optimize browser-level sound synthesis while maintaining system responsiveness.
+          </p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer container">
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2026 Ayush Kumar Jha. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Lucide CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Main Script -->
+  <script src="../main.js"></script>
+</body>
+</html>

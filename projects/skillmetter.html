@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skillmetter — Ayush Kumar Jha</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container container">
+      <a href="../index.html" class="logo">A.J.</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="../about.html" class="nav-link">About</a></li>
+          <li><a href="../work.html" class="nav-link">Work</a></li>
+          <li><a href="../certifications.html" class="nav-link">Certifications</a></li>
+          <li><a href="../experience.html" class="nav-link">Experience</a></li>
+          <li><a href="../contact.html" class="nav-link">Connect</a></li>
+          <li><a href="../assets/resume.pdf" class="nav-link resume-link" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        </ul>
+      </nav>
+      <!-- Theme Switcher -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" type="button">
+        <span class="theme-toggle-label">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content detail-layout container">
+    <!-- Back Button -->
+    <a href="../work.html" class="back-link">
+      <i data-lucide="arrow-left"></i> Back to Work
+    </a>
+
+    <!-- Detail Grid -->
+    <div class="detail-grid">
+      <!-- Sidebar -->
+      <aside class="detail-sidebar">
+        <div class="detail-meta-list">
+          <div class="detail-meta-item">
+            <span class="meta-label">Year</span>
+            <p class="meta-value">2025</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Focus</span>
+            <p class="meta-value">TryHackMe Metrics & Cyber Skill Analytics</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Stack</span>
+            <p class="meta-value">React / TypeScript / Tailwind CSS / Vercel API</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Code base</span>
+            <p class="meta-value">
+              <a href="https://github.com/ayushjha-dev/Skillmetter" target="_blank" rel="noopener noreferrer" class="inline-link">
+                GitHub Repository
+              </a>
+            </p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Live Link</span>
+            <p class="meta-value">
+              <a href="https://skillm.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-link">
+                skillm.vercel.app
+              </a>
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Content -->
+      <article class="detail-content">
+        <header class="detail-header">
+          <h1 class="detail-title">Skillmetter</h1>
+          <p class="detail-subtitle">A production-ready TryHackMe profile comparison and benchmarking platform.</p>
+        </header>
+
+        <div class="detail-body">
+          <h3>Overview</h3>
+          <p>
+            Skillmetter is a performance comparison dashboard that compares TryHackMe profiles. It analyses room completions, domain breakdown scores, and badge milestones to generate weighted cybersecurity skill metrics.
+          </p>
+
+          <h3>Core Capabilities</h3>
+          <ul>
+            <li><strong>Domain Analysis</strong>: Classifies TryHackMe achievements into key domains (Web Exploitation, Cryptography, Reverse Engineering, Network Security, Forensic Analysis).</li>
+            <li><strong>Visual Analytics</strong>: Interactive visualizations comparing user rankings, badge gains, and room completion timelines.</li>
+            <li><strong>Intelligent Ranking</strong>: Computes weighted scores reflecting room difficulty and completeness rather than just flat point totals.</li>
+          </ul>
+
+          <blockquote>
+            "Gamified metrics are great, but evaluating true skill progression requires parsing room classifications and calculating weighted metrics over time."
+          </blockquote>
+
+          <h3>Technical Architecture</h3>
+          <ul>
+            <li><strong>Frontend Core</strong>: React and TypeScript, structured as a clean dashboard utilizing modular graphs.</li>
+            <li><strong>API Integration</strong>: Calls TryHackMe's public endpoints using edge proxies to avoid CORS restrictions.</li>
+            <li><strong>Data Engine</strong>: Normalizes inconsistent room classifications, sorting them into five core security pillars.</li>
+          </ul>
+
+          <h3>Implementation Highlight</h3>
+          <p>
+            The following TypeScript snippet demonstrates the score weight calculation algorithm:
+          </p>
+
+          <div class="code-block-wrapper">
+            <div class="code-header">
+              <span class="code-lang">TypeScript</span>
+            </div>
+            <pre class="code-content"><code class="language-typescript">interface UserStats {
+  points: number;
+  completedRooms: Array<{ name: string; type: string; difficulty: string }>;
+}
+
+export function computeWeightedScore(stats: UserStats): number {
+  const difficultyWeights: Record<string, number> = {
+    easy: 1.0,
+    medium: 1.8,
+    hard: 3.0,
+    insane: 5.0
+  };
+
+  let weightedTotal = 0;
+  stats.completedRooms.forEach(room => {
+    const weight = difficultyWeights[room.difficulty.toLowerCase()] || 1.0;
+    weightedTotal += 100 * weight;
+  });
+
+  // Combine raw points (reduced impact) with room difficulty weight
+  return Math.round((stats.points * 0.1) + (weightedTotal * 0.9));
+}</code></pre>
+          </div>
+
+          <h3>Learning Outcomes</h3>
+          <p>
+            Building Skillmetter deepened my experience in parsing APIs, modeling user skills, and handling responsive dashboards.
+          </p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer container">
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2026 Ayush Kumar Jha. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Lucide CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Main Script -->
+  <script src="../main.js"></script>
+</body>
+</html>

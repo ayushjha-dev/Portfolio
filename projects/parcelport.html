@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParcelPort — Ayush Kumar Jha</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container container">
+      <a href="../index.html" class="logo">A.J.</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="../about.html" class="nav-link">About</a></li>
+          <li><a href="../work.html" class="nav-link">Work</a></li>
+          <li><a href="../certifications.html" class="nav-link">Certifications</a></li>
+          <li><a href="../experience.html" class="nav-link">Experience</a></li>
+          <li><a href="../contact.html" class="nav-link">Connect</a></li>
+          <li><a href="../assets/resume.pdf" class="nav-link resume-link" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        </ul>
+      </nav>
+      <!-- Theme Switcher -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" type="button">
+        <span class="theme-toggle-label">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content detail-layout container">
+    <!-- Back Button -->
+    <a href="../work.html" class="back-link">
+      <i data-lucide="arrow-left"></i> Back to Work
+    </a>
+
+    <!-- Detail Grid -->
+    <div class="detail-grid">
+      <!-- Sidebar -->
+      <aside class="detail-sidebar">
+        <div class="detail-meta-list">
+          <div class="detail-meta-item">
+            <span class="meta-label">Year</span>
+            <p class="meta-value">2025</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Focus</span>
+            <p class="meta-value">Logistics & Platform Automation</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Stack</span>
+            <p class="meta-value">Node.js / Express / MongoDB</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Code base</span>
+            <p class="meta-value">
+              <a href="https://github.com/ayushjha-dev/Parcelport" target="_blank" rel="noopener noreferrer" class="inline-link">
+                GitHub Repository
+              </a>
+            </p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Live Link</span>
+            <p class="meta-value">
+              <a href="https://parcelport.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-link">
+                parcelport.vercel.app
+              </a>
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Content -->
+      <article class="detail-content">
+        <header class="detail-header">
+          <h1 class="detail-title">ParcelPort</h1>
+          <p class="detail-subtitle">Smart hostel parcel management and delivery coordination system.</p>
+        </header>
+
+        <div class="detail-body">
+          <h3>Overview</h3>
+          <p>
+            ParcelPort automates the logistics of student hostel parcel deliveries, managing ingress, storage, tracking notifications, and verification.
+          </p>
+
+          <h3>The Challenge</h3>
+          <p>
+            Manual paper logs for hostel parcels lead to lost packages, delayed student notifications, and unsecured access to storage rooms. I wanted to design a secure, database-backed platform with dedicated role portals.
+          </p>
+
+          <blockquote>
+            "Hostel logistics need security and speed. ParcelPort eliminates manual registration and ensures students get real-time collection notifications instantly."
+          </blockquote>
+
+          <h3>Technical Architecture</h3>
+          <p>
+            The platform relies on role-based authentication and real-time ledger tracking:
+          </p>
+          <ul>
+            <li><strong>Role-Based Authorization</strong>: Custom authentication middleware serving distinct client views and API permissions for Admin, Student, and Delivery staff.</li>
+            <li><strong>Parcel Lifecycle Log</strong>: Tracks each package from initial check-in (courier), verification staging (admin), notifications (system), to final signature pickup (student).</li>
+            <li><strong>Notification Handler</strong>: Triggered on data check-in to auto-compile and dispatch email and messaging warnings with collection codes.</li>
+          </ul>
+
+          <h3>Implementation Highlight</h3>
+          <p>
+            This Node.js middleware snippet shows how roles are validated against JSON Web Tokens before letting users edit parcel statuses:
+          </p>
+
+          <div class="code-block-wrapper">
+            <div class="code-header">
+              <span class="code-lang">JavaScript</span>
+            </div>
+            <pre class="code-content"><code class="language-javascript">const authorizeRoles = (...allowedRoles) => {
+  return (req, res, next) => {
+    // 1. JWT verification assigns user role to req.user
+    if (!req.user || !allowedRoles.includes(req.user.role)) {
+      return res.status(403).json({ 
+        error: "Access denied. Insufficient permissions." 
+      });
+    }
+    // 2. Pass control to next router step
+    next();
+  };
+};
+
+// Admin and Courier access to log incoming parcels
+router.post("/parcels/register", authenticateJWT, authorizeRoles("admin", "courier"), registerIncomingParcel);</code></pre>
+          </div>
+
+          <h3>Learning Outcomes</h3>
+          <p>
+            Developing ParcelPort taught me how to configure role-based authentication pipelines, construct flexible MongoDB data models, and set up event-driven automated notifications.
+          </p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer container">
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2026 Ayush Kumar Jha. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Lucide CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Main Script -->
+  <script src="../main.js"></script>
+</body>
+</html>
