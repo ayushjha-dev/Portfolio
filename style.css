@@ -610,6 +610,7 @@ a {
               transform var(--transition-duration) var(--transition-timing);
   filter: grayscale(0%);
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 [data-theme="dark"] .tech-logo {
