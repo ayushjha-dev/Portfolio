@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wardress — Ayush Kumar Jha</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container container">
+      <a href="../index.html" class="logo">A.J.</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="../about.html" class="nav-link">About</a></li>
+          <li><a href="../work.html" class="nav-link">Work</a></li>
+          <li><a href="../certifications.html" class="nav-link">Certifications</a></li>
+          <li><a href="../experience.html" class="nav-link">Experience</a></li>
+          <li><a href="../contact.html" class="nav-link">Connect</a></li>
+          <li><a href="../assets/resume.pdf" class="nav-link resume-link" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        </ul>
+      </nav>
+      <!-- Theme Switcher -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" type="button">
+        <span class="theme-toggle-label">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content detail-layout container">
+    <!-- Back Button -->
+    <a href="../work.html" class="back-link">
+      <i data-lucide="arrow-left"></i> Back to Work
+    </a>
+
+    <!-- Detail Grid -->
+    <div class="detail-grid">
+      <!-- Sidebar -->
+      <aside class="detail-sidebar">
+        <div class="detail-meta-list">
+          <div class="detail-meta-item">
+            <span class="meta-label">Year</span>
+            <p class="meta-value">2026</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Focus</span>
+            <p class="meta-value">Website Defacement Detection & Response</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Stack</span>
+            <p class="meta-value">Docker / Multi-Layer Detection / AI Integration</p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Repository</span>
+            <p class="meta-value">
+              <a href="https://github.com/ayushjha-dev/WARDRESS" target="_blank" rel="noopener noreferrer" class="inline-link">
+                GitHub Repository
+              </a>
+            </p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Documentation</span>
+            <p class="meta-value">
+              <a href="https://wardress.mintlify.site/" target="_blank" rel="noopener noreferrer" class="inline-link">
+                Full Documentation
+              </a>
+            </p>
+          </div>
+          <div class="detail-meta-item">
+            <span class="meta-label">Live Demo</span>
+            <p class="meta-value">
+              <a href="https://ns81000.github.io/WARDRESS/" target="_blank" rel="noopener noreferrer" class="inline-link">
+                View Demo
+              </a>
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Content -->
+      <article class="detail-content">
+        <header class="detail-header">
+          <h1 class="detail-title">Wardress</h1>
+          <p class="detail-subtitle">Self-hosted website defacement detection and automated response orchestration.</p>
+        </header>
+
+        <div class="detail-body">
+          <h3>Overview</h3>
+          <p>
+            Wardress is a production-grade, self-hosted security tool built to protect website integrity. It captures and freezes a trusted baseline of your target website — DOM structure, network references, visual layout, and textual semantics — and continuously monitors the site for malicious defacements, script injections, metadata tampering, and domain hijacking.
+          </p>
+          <p>
+            Nine distinct detection layers, dynamic risk fusion, multi-channel alerting, and guarded remediation — all deployed via Docker Compose on infrastructure you control.
+          </p>
+
+          <h3>The Problem</h3>
+          <p>
+            Traditional page monitors are simplistic and produce too many false positives. Rotating ads, timestamps, and cache-busting references trigger unnecessary alerts. Meanwhile, sophisticated attacks like script injections, metadata tampering, and subtle DOM modifications can slip through undetected.
+          </p>
+          <p>
+            Security teams need a solution that distinguishes between benign content churn and genuine security threats — without relying on third-party cloud services that see your sensitive monitoring data.
+          </p>
+
+          <blockquote>
+            "Unlike simple page monitors, Wardress aggregates results from 9 independent detection layers into a single fused risk score. Rule-based minimum-risk floors keep high-specificity attack evidence from being drowned out by ordinary site churn."
+          </blockquote>
+
+          <h3>Technical Architecture</h3>
+          <p>
+            Wardress employs a sophisticated multi-layer detection system that analyzes various aspects of website integrity:
+          </p>
+          <ul>
+            <li><strong>DOM Structure Analysis</strong>: Monitors HTML element hierarchy and detects unauthorized structural modifications.</li>
+            <li><strong>Network Reference Tracking</strong>: Identifies new external script domains and unexpected resource loading patterns.</li>
+            <li><strong>Visual Layout Detection</strong>: Uses computer vision to detect visual defacements and layout anomalies.</li>
+            <li><strong>Textual Semantics</strong>: Analyzes content changes and identifies defacement signatures.</li>
+            <li><strong>Script Injection Detection</strong>: Monitors for new or modified JavaScript execution.</li>
+            <li><strong>Metadata Tampering</strong>: Tracks changes to meta tags, titles, and SEO elements.</li>
+            <li><strong>Domain Hijacking Detection</strong>: Monitors DNS records and domain ownership indicators.</li>
+            <li><strong>Crawler Cloaking Detection</strong>: Identifies attempts to serve different content to bots versus users.</li>
+            <li><strong>AI-Assisted Classification</strong>: Optional AI model integration for ambiguous incident analysis.</li>
+          </ul>
+
+          <h3>Risk Fusion System</h3>
+          <p>
+            The core innovation in Wardress is its dynamic risk fusion engine. Instead of binary pass/fail checks, each detection layer produces a normalized risk score. These scores are aggregated with intelligent weighting:
+          </p>
+          <ul>
+            <li><strong>Minimum-Risk Floors</strong>: High-specificity indicators (new external scripts, known defacement patterns) set a floor that prevents dilution by low-risk changes.</li>
+            <li><strong>Adaptive Scanning</strong>: Subtler changes shorten scan intervals and can trigger AI review for operator assessment.</li>
+            <li><strong>Tunable Thresholds</strong>: Per-site flag thresholds allow customization based on site characteristics and risk tolerance.</li>
+            <li><strong>Historical Context</strong>: Risk scoring considers change frequency patterns to distinguish attacks from legitimate updates.</li>
+          </ul>
+
+          <h3>Self-Hosted & Privacy-First</h3>
+          <p>
+            Wardress runs entirely on your infrastructure. Dashboard imagery is bundled same-origin by default: site avatars are local letter tiles, provider logos ship with the app, and the browser makes no third-party image-CDN requests.
+          </p>
+          <p>
+            An opt-in server-side favicon resolver (Settings → Site favicons, off by default) lets your own server fetch each monitored site's icon once and cache it locally. No data leaves your control unless you explicitly configure external alerting channels.
+          </p>
+
+          <h3>Deployment & Integration</h3>
+          <p>
+            Wardress deploys via Docker Compose for simplified orchestration. The system includes:
+          </p>
+          <ul>
+            <li><strong>Web Dashboard</strong>: Real-time monitoring interface with historical incident tracking.</li>
+            <li><strong>Multi-Channel Alerting</strong>: Webhook integrations for Slack, Discord, PagerDuty, and custom endpoints.</li>
+            <li><strong>Automated Response</strong>: Configurable remediation workflows triggered by confirmed incidents.</li>
+            <li><strong>API Access</strong>: RESTful API for programmatic control and integration with existing security tools.</li>
+          </ul>
+
+          <h3>Implementation Highlight</h3>
+          <p>
+            Here's a conceptual view of how Wardress's risk fusion engine processes multiple detection signals:
+          </p>
+
+          <div class="code-block-wrapper">
+            <div class="code-header">
+              <span class="code-lang">Python (Conceptual)</span>
+            </div>
+            <pre class="code-content"><code class="language-python">class RiskFusionEngine:
+    def calculate_fused_risk(self, detection_results):
+        # Aggregate normalized scores from all layers
+        base_risk = sum(r.score * r.weight for r in detection_results)
+        
+        # Apply minimum-risk floors for high-specificity indicators
+        floor_risk = max(
+            r.score for r in detection_results 
+            if r.is_high_specificity
+        )
+        
+        # Fused score considers both aggregate and floor
+        fused = max(base_risk, floor_risk * 0.85)
+        
+        # Compare against site-specific threshold
+        if fused >= self.site.alert_threshold:
+            self.trigger_alert(fused, detection_results)
+        elif fused >= self.site.review_threshold:
+            self.request_ai_review(detection_results)
+        
+        return fused</code></pre>
+          </div>
+
+          <h3>Use Cases</h3>
+          <ul>
+            <li><strong>Corporate Web Properties</strong>: Monitor public-facing websites for defacement attempts and unauthorized changes.</li>
+            <li><strong>E-Commerce Platforms</strong>: Detect script injections, payment form tampering, and checkout page modifications.</li>
+            <li><strong>Government Websites</strong>: Protect critical infrastructure from politically-motivated defacement campaigns.</li>
+            <li><strong>Educational Institutions</strong>: Monitor multiple departmental sites with centralized alerting.</li>
+            <li><strong>Security Operations Centers</strong>: Integrate with existing SIEM/SOAR platforms via API.</li>
+          </ul>
+
+          <h3>Learning Outcomes</h3>
+          <p>
+            Building Wardress deepened my understanding of:
+          </p>
+          <ul>
+            <li>Multi-layer security detection systems and risk aggregation strategies</li>
+            <li>Docker containerization and service orchestration for production deployments</li>
+            <li>Computer vision techniques for visual change detection</li>
+            <li>AI/ML integration for ambiguous incident classification</li>
+            <li>Building privacy-first, self-hosted security tools that compete with cloud offerings</li>
+            <li>Real-time alerting architectures and webhook integration patterns</li>
+          </ul>
+
+          <h3>Future Roadmap</h3>
+          <p>
+            Planned enhancements include distributed monitoring agents for multi-region coverage, machine learning models trained on defacement patterns, automated rollback capabilities, and integration with major CDN providers for instant mitigation.
+          </p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer container">
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2026 Ayush Kumar Jha. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Lucide CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Main Script -->
+  <script src="../main.js"></script>
+</body>
+</html>
