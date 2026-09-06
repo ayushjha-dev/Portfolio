@@ -1,12 +1,12 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="32" height="32" rx="6" fill="#1a1a19"/>
-  <rect x="1" y="1" width="30" height="30" rx="5" fill="#121211"/>
+  <!-- Light background with subtle border for visibility in both themes -->
+  <rect width="32" height="32" rx="6" fill="#fbfaf7"/>
+  <rect x="1" y="1" width="30" height="30" rx="5" stroke="#eae8e2" stroke-width="1"/>
   
   <!-- Letter A -->
-  <path d="M 8 22 L 11 10 L 14 22 M 9.5 16 L 12.5 16" stroke="#d35e35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 8 22 L 11 10 L 14 22 M 9.5 16 L 12.5 16" stroke="#d35e35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
   
   <!-- Letter J with dot -->
-  <circle cx="18" cy="9" r="0.8" fill="#d35e35"/>
-  <path d="M 18 12 L 18 20 Q 18 23 21 23 Q 24 23 24 20" stroke="#d35e35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="18" cy="9" r="0.9" fill="#d35e35"/>
+  <path d="M 18 12 L 18 20 Q 18 23 21 23 Q 24 23 24 20" stroke="#d35e35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
