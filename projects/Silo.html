@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ilo — Ayush Kumar Jha</title>
+  <title>Silo — Ayush Kumar Jha</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,19 +73,19 @@
       <!-- Content -->
       <article class="detail-content">
         <header class="detail-header">
-          <h1 class="detail-title">ilo</h1>
+          <h1 class="detail-title">Silo</h1>
           <p class="detail-subtitle">A zero-knowledge, single-user cloud password manager.</p>
         </header>
 
         <div class="detail-body">
           <h3>Overview</h3>
           <p>
-            ilo is a zero-knowledge password manager designed to run fully client-side for vault encryption, using cloud architecture solely to synchronize encrypted blobs. Even under full database compromise, user vault details remain cryptographically unreadable.
+            Silo is a zero-knowledge password manager designed to run fully client-side for vault encryption, using cloud architecture solely to synchronize encrypted blobs. Even under full database compromise, user vault details remain cryptographically unreadable.
           </p>
 
           <h3>Security Model & Key Derivation</h3>
           <p>
-            By utilizing the browser's Web Crypto API alongside server-side verification salts, ilo executes a multi-layered Argon2id key derivation flow:
+            By utilizing the browser's Web Crypto API alongside server-side verification salts, Silo executes a multi-layered Argon2id key derivation flow:
           </p>
           <ul>
             <li><strong>Encryption Key</strong>: Derived via <code>MasterPassword + kdfSalt &rarr; (Argon2id) &rarr; EncryptionKey</code>. This key is held strictly in browser memory, never sent to the network, and cleared instantly on session locking or tab closure.</li>
