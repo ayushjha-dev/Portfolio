@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Favicon Generator</title>
+</head>
+<body>
+    <h2>Favicon Preview</h2>
+    <canvas id="canvas" width="32" height="32" style="border: 1px solid #ccc; width: 128px; height: 128px; image-rendering: pixelated;"></canvas>
+    <br><br>
+    <button onclick="downloadPNG()">Download as PNG</button>
+    <button onclick="copyBase64()">Copy Base64</button>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Background
+        ctx.fillStyle = '#1a1a19';
+        ctx.fillRect(0, 0, 32, 32);
+        
+        ctx.fillStyle = '#121211';
+        ctx.fillRect(1, 1, 30, 30);
+        
+        // Draw A.J. monogram
+        ctx.strokeStyle = '#d35e35';
+        ctx.lineWidth = 1.5;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        
+        // Letter A
+        ctx.beginPath();
+        ctx.moveTo(8, 22);
+        ctx.lineTo(11, 10);
+        ctx.lineTo(14, 22);
+        ctx.moveTo(9.5, 16);
+        ctx.lineTo(12.5, 16);
+        ctx.stroke();
+        
+        // Letter J dot
+        ctx.fillStyle = '#d35e35';
+        ctx.beginPath();
+        ctx.arc(18, 9, 0.8, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Letter J
+        ctx.strokeStyle = '#d35e35';
+        ctx.beginPath();
+        ctx.moveTo(18, 12);
+        ctx.lineTo(18, 20);
+        ctx.quadraticCurveTo(18, 23, 21, 23);
+        ctx.quadraticCurveTo(24, 23, 24, 20);
+        ctx.stroke();
+        
+        function downloadPNG() {
+            canvas.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'favicon-32x32.png';
+                a.click();
+            });
+        }
+        
+        function copyBase64() {
+            const base64 = canvas.toDataURL('image/png');
+            navigator.clipboard.writeText(base64);
+            alert('Base64 copied to clipboard!');
+        }
+    </script>
+</body>
+</html>
