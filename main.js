@@ -1,55 +1,135 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Lucide Icons
+  // 1. Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
   }
 
-  // Set current year in footer
+  // 2. Set Dynamic Copyright Year
   const currentYearElement = document.getElementById('currentYear');
   if (currentYearElement) {
     currentYearElement.textContent = new Date().getFullYear();
   }
 
-  // Theme Management (Light / Dark mode)
+  // 3. Theme Management (Light / Dark mode)
   const themeToggle = document.getElementById('themeToggle');
-  const themeLabel = themeToggle ? themeToggle.querySelector('.theme-toggle-label') : null;
   
-  // Get initial theme from localStorage or system preferences
   const getInitialTheme = () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
       return savedTheme;
     }
-    const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return userPrefersDark ? 'dark' : 'light';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('portfolio-theme', theme);
+    
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`);
+      themeToggle.setAttribute('title', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+    }
+
+    // Refresh lucide icons if rendered inside toggle
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
   };
 
   let currentTheme = getInitialTheme();
-
-  // Apply theme to document
-  const applyTheme = (theme) => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    currentTheme = theme;
-    
-    // Always show "LIGHT" label
-    if (themeLabel) {
-      themeLabel.textContent = 'Light';
-    }
-  };
-
-  // Initial application
   applyTheme(currentTheme);
 
-  // Toggle button event listener
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      applyTheme(nextTheme);
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(currentTheme);
     });
   }
 
-  // Dynamic India Local Time
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('portfolio-theme')) {
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+
+  // 4. Mobile Navigation Drawer Controller
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const drawerClose = document.getElementById('drawerClose');
+  const drawerBackdrop = mobileDrawer ? mobileDrawer.querySelector('.mobile-drawer-backdrop') : null;
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link, .mobile-drawer-cta');
+
+  const openDrawer = () => {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.add('is-active');
+    if (menuToggle) {
+      menuToggle.classList.add('is-open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+    }
+    document.body.classList.add('menu-open');
+  };
+
+  const closeDrawer = () => {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.remove('is-active');
+    if (menuToggle) {
+      menuToggle.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    document.body.classList.remove('menu-open');
+  };
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      if (mobileDrawer && mobileDrawer.classList.contains('is-active')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+  }
+
+  if (drawerClose) {
+    drawerClose.addEventListener('click', closeDrawer);
+  }
+
+  if (drawerBackdrop) {
+    drawerBackdrop.addEventListener('click', closeDrawer);
+  }
+
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeDrawer();
+    });
+  });
+
+  // Close drawer on Escape key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('is-active')) {
+      closeDrawer();
+    }
+  });
+
+  // 5. Active Route Highlight
+  const markActiveNavLinks = () => {
+    const currentPath = window.location.pathname.toLowerCase();
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      const cleanHref = href.toLowerCase().split('/').pop();
+      const currentFile = currentPath.split('/').pop() || 'index.html';
+
+      if (cleanHref === currentFile || (currentFile === '' && cleanHref === 'index.html')) {
+        link.classList.add('active');
+      }
+    });
+  };
+  markActiveNavLinks();
+
+  // 6. Dynamic Real-time India Local Time (IST / GMT+5:30)
   const updateLocalTime = () => {
     const timeElement = document.getElementById('localTime');
     if (!timeElement) return;
@@ -60,59 +140,90 @@ document.addEventListener('DOMContentLoaded', () => {
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
-        hour12: false,
-        timeZoneName: 'short'
+        hour12: false
       };
       
       const formatter = new Intl.DateTimeFormat('en-GB', options);
-      timeElement.textContent = formatter.format(new Date());
+      timeElement.textContent = `${formatter.format(new Date())} IST`;
     } catch (e) {
-      // Fallback if Europe/London timezone formatting fails
       const fallbackTime = new Date().toLocaleTimeString('en-GB', { hour12: false });
-      timeElement.textContent = `${fallbackTime} GMT`;
+      timeElement.textContent = `${fallbackTime} IST`;
     }
   };
 
-  // Run immediately and update every second
   updateLocalTime();
   setInterval(updateLocalTime, 1000);
 
-  // Progressive Reveal on Scroll (Intersection Observer)
-  const observeScrollReveal = () => {
+  // 7. Snappy Scroll Reveal (Intersection Observer)
+  const setupScrollReveal = () => {
     const revealElements = document.querySelectorAll(
-      '.hero-headline, .hero-meta-item, .project-item, .timeline-item, .about-headline, .about-body, .skills-category, .footer-cta'
+      '.hero-headline, .hero-details-area, .hero-actions, .project-item, .timeline-item, .about-intro, .about-body, .section-header'
     );
 
-    // Apply inline initial styles programmatically to avoid FOUC if JS is disabled
-    revealElements.forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(24px)';
-      el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-    });
+    if ('IntersectionObserver' in window) {
+      revealElements.forEach(el => el.classList.add('reveal-init'));
 
-    const observerOptions = {
-      root: null,
-      threshold: 0.05,
-      rootMargin: '0px 0px -50px 0px' // triggers slightly before entry to avoid awkward delays
-    };
+      const observerOptions = {
+        root: null,
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+      };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const target = entry.target;
-          target.style.opacity = '1';
-          target.style.transform = 'translateY(0)';
-          // Unobserve after showing to prevent unnecessary runs
-          observer.unobserve(target);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      revealElements.forEach(el => observer.observe(el));
+    }
+  };
+  setupScrollReveal();
+
+  // 8. Copy-to-Clipboard Functionality (Email & Code Snippets)
+  const setupCopyButtons = () => {
+    // Copy email button in footer/contact
+    const copyEmailBtns = document.querySelectorAll('.copy-email-btn');
+    copyEmailBtns.forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const email = btn.getAttribute('data-email') || 'ayushkrjha85@gmail.com';
+        try {
+          await navigator.clipboard.writeText(email);
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = `<i data-lucide="check" style="width:14px;height:14px;color:var(--status-available);"></i> Copied!`;
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+          }, 2000);
+        } catch (err) {
+          // Fallback
+          prompt('Copy email address:', email);
         }
       });
-    }, observerOptions);
+    });
 
-    revealElements.forEach(el => observer.observe(el));
+    // Copy code snippet buttons in case studies
+    const copyCodeBtns = document.querySelectorAll('.code-copy-btn');
+    copyCodeBtns.forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const codeBlock = btn.closest('.code-block-wrapper')?.querySelector('code');
+        if (!codeBlock) return;
+        try {
+          await navigator.clipboard.writeText(codeBlock.innerText);
+          const originalText = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(() => {
+            btn.textContent = originalText;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy code snippet');
+        }
+      });
+    });
   };
-
-  // Check if browser supports IntersectionObserver
-  if ('IntersectionObserver' in window) {
-    observeScrollReveal();
-  }
+  setupCopyButtons();
 });

@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Ayush Kumar Jha</title>
+  <title>Connect — Ayush Kumar Jha</title>
+  <meta name="description" content="Get in touch with Ayush Kumar Jha for cybersecurity assessments, full-stack application development, or research collaborations.">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +15,11 @@
     rel="stylesheet">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">`n  `n  <!-- Favicon -->`n  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">`n  <link rel="alternate icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="assets/favicon.png">
 </head>
 
 <body>
@@ -22,68 +27,168 @@
   <!-- Header -->
   <header class="header">
     <div class="header-container container">
-      <a href="index.html" class="logo">A.J.</a>
-      <nav class="nav">
+      <div class="logo-area">
+        <a href="index.html" class="logo">A.J.</a>
+      </div>
+
+      <nav class="nav-desktop">
         <ul class="nav-list">
           <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="work.html" class="nav-link">Work</a></li>
           <li><a href="certifications.html" class="nav-link">Certifications</a></li>
           <li><a href="experience.html" class="nav-link">Experience</a></li>
           <li><a href="contact.html" class="nav-link active">Connect</a></li>
-          <li><a href="assets/resume.pdf" class="nav-link resume-link" target="_blank"
-              rel="noopener noreferrer">Resume</a></li>
+          <li><a href="assets/resume.pdf" class="resume-link" target="_blank" rel="noopener noreferrer">Resume</a></li>
         </ul>
       </nav>
-      <!-- Theme Switcher -->
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" type="button">
-        <span class="theme-toggle-label">Dark</span>
-      </button>
+
+      <div class="header-actions">
+        <!-- Theme Switcher -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" type="button">
+          <!-- Sun icon for dark mode -->
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <!-- Moon icon for light mode -->
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Open Navigation Menu" aria-expanded="false" type="button">
+          <span class="menu-toggle-line"></span>
+          <span class="menu-toggle-line"></span>
+          <span class="menu-toggle-line"></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main class="main-content container section-padding">
-    <div class="footer-cta" style="margin-top: 0;">
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-panel">
+      <div>
+        <div class="mobile-drawer-header">
+          <a href="index.html" class="logo">A.J.</a>
+          <button class="menu-toggle is-open" id="drawerClose" aria-label="Close navigation menu" type="button">
+            <span class="menu-toggle-line"></span>
+            <span class="menu-toggle-line"></span>
+            <span class="menu-toggle-line"></span>
+          </button>
+        </div>
+        <nav class="mobile-drawer-nav">
+          <a href="about.html" class="mobile-nav-link">
+            <span>About</span>
+            <span class="mobile-nav-index">01</span>
+          </a>
+          <a href="work.html" class="mobile-nav-link">
+            <span>Work</span>
+            <span class="mobile-nav-index">02</span>
+          </a>
+          <a href="certifications.html" class="mobile-nav-link">
+            <span>Certifications</span>
+            <span class="mobile-nav-index">03</span>
+          </a>
+          <a href="experience.html" class="mobile-nav-link">
+            <span>Experience</span>
+            <span class="mobile-nav-index">04</span>
+          </a>
+          <a href="contact.html" class="mobile-nav-link active">
+            <span>Connect</span>
+            <span class="mobile-nav-index">05</span>
+          </a>
+        </nav>
+      </div>
+      <div class="mobile-drawer-footer">
+        <a href="assets/resume.pdf" class="mobile-drawer-cta" target="_blank" rel="noopener noreferrer">
+          <i data-lucide="file-text" style="width: 16px; height: 16px;"></i> View Resume (PDF)
+        </a>
+        <div class="social-links" style="justify-content: center; margin-top: 8px;">
+          <a href="https://github.com/ayushjha-dev" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+            <svg class="social-icon" viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/ayush-kumar-jha-058b64323/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+            <svg class="social-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.69 1.69 0 0 0 1.7-1.68 1.7 1.7 0 0 0-1.7-1.71 1.7 1.7 0 0 0-1.7 1.71c0 .93.76 1.68 1.7 1.68m1.39 9.94v-8.37H5.07v8.37h2.78z"/>
+            </svg>
+          </a>
+          <a href="https://tryhackme.com/p/Mr.Xploit" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TryHackMe">
+            <svg class="social-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M10.705 0C7.54 0 4.902 2.285 4.349 5.291a4.525 4.525 0 0 0-4.107 4.5 4.525 4.525 0 0 0 4.52 4.52h6.761a.625.625 0 1 0 0-1.25H4.761a3.273 3.273 0 0 1-3.27-3.27A3.273 3.273 0 0 1 6.59 7.08a.625.625 0 0 0 .7-1.035 4.488 4.488 0 0 0-1.68-.69 5.223 5.223 0 0 1 5.096-4.104 5.221 5.221 0 0 1 5.174 4.57 4.489 4.489 0 0 0-.488.305.625.625 0 1 0 .731 1.013 3.245 3.245 0 0 1 1.912-.616 3.278 3.278 0 0 1 3.203 2.61.625.625 0 0 0 1.225-.251 4.533 4.533 0 0 0-4.428-3.61 4.54 4.54 0 0 0-.958.105C16.556 2.328 13.9 0 10.705 0z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/ayush_kumar_jha" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X (Twitter)">
+            <svg class="social-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="main-content container" style="min-height: calc(100vh - var(--header-height)); display: flex; flex-direction: column; justify-content: space-between; padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg);">
+    <div class="footer-cta" style="margin-top: auto; margin-bottom: auto;">
       <span class="section-label">Connect</span>
-      <h1 class="footer-headline" style="font-size: 3.5rem; margin-top: var(--spacing-xs);">Let's secure the web
-        together.</h1>
+      <h1 class="footer-headline" style="margin-top: var(--spacing-xs);">Let's secure the web together.</h1>
 
       <div style="margin: var(--spacing-md) 0;">
-        <a href="mailto:ayushkrjha85@gmail.com" class="email-link">ayushkrjha85@gmail.com</a>
-        <p class="form-notice" style="margin-top: var(--spacing-sm);">
-          For project inquiries, collaboration details, or security consulting roles, feel free to send an email. For
-          static forms without servers, you can integrate endpoints like Formspree or EmailJS.
+        <div class="email-wrapper">
+          <a href="mailto:ayushkrjha85@gmail.com" class="email-link">ayushkrjha85@gmail.com</a>
+          <button class="copy-email-btn" data-email="ayushkrjha85@gmail.com" type="button" aria-label="Copy email address">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i> Copy Email
+          </button>
+        </div>
+        <p class="form-notice" style="margin-top: var(--spacing-sm); max-width: 540px;">
+          Available for cybersecurity audits, penetration testing engagements, security engineering, and full-stack software development opportunities.
         </p>
       </div>
 
       <div class="social-links" style="margin-top: var(--spacing-md); gap: var(--spacing-md);">
         <a href="https://github.com/ayushjha-dev" target="_blank" rel="noopener noreferrer" class="social-link"
-          aria-label="GitHub" style="font-size: 1.1rem;">
-          <i data-lucide="github" style="width: 18px; height: 18px;"></i> <span>GitHub</span>
+          aria-label="GitHub" style="font-size: 1rem; display: inline-flex; align-items: center; gap: 8px;">
+          <svg class="social-icon" viewBox="0 0 1024 1024" width="18" height="18" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)"/>
+          </svg>
+          <span>GitHub</span>
         </a>
-        <a href="https://linkedin.com/in/ayush-kumar-jha-058b64323" target="_blank" rel="noopener noreferrer"
-          class="social-link" aria-label="LinkedIn" style="font-size: 1.1rem;">
-          <i data-lucide="linkedin" style="width: 18px; height: 18px;"></i> <span>LinkedIn</span>
+        <a href="https://www.linkedin.com/in/ayush-kumar-jha-058b64323/" target="_blank" rel="noopener noreferrer"
+          class="social-link" aria-label="LinkedIn" style="font-size: 1rem; display: inline-flex; align-items: center; gap: 8px;">
+          <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.69 1.69 0 0 0 1.7-1.68 1.7 1.7 0 0 0-1.7-1.71 1.7 1.7 0 0 0-1.7 1.71c0 .93.76 1.68 1.7 1.68m1.39 9.94v-8.37H5.07v8.37h2.78z"/>
+          </svg>
+          <span>LinkedIn</span>
         </a>
         <a href="https://tryhackme.com/p/Mr.Xploit" target="_blank" rel="noopener noreferrer" class="social-link"
-          aria-label="TryHackMe" style="font-size: 1.1rem;">
-          <i data-lucide="TryHackMe" style="width: 18px; height: 18px;"></i> <span>TryHackMe</span>
+          aria-label="TryHackMe" style="font-size: 1rem; display: inline-flex; align-items: center; gap: 8px;">
+          <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M10.705 0C7.54 0 4.902 2.285 4.349 5.291a4.525 4.525 0 0 0-4.107 4.5 4.525 4.525 0 0 0 4.52 4.52h6.761a.625.625 0 1 0 0-1.25H4.761a3.273 3.273 0 0 1-3.27-3.27A3.273 3.273 0 0 1 6.59 7.08a.625.625 0 0 0 .7-1.035 4.488 4.488 0 0 0-1.68-.69 5.223 5.223 0 0 1 5.096-4.104 5.221 5.221 0 0 1 5.174 4.57 4.489 4.489 0 0 0-.488.305.625.625 0 1 0 .731 1.013 3.245 3.245 0 0 1 1.912-.616 3.278 3.278 0 0 1 3.203 2.61.625.625 0 0 0 1.225-.251 4.533 4.533 0 0 0-4.428-3.61 4.54 4.54 0 0 0-.958.105C16.556 2.328 13.9 0 10.705 0z"/>
+          </svg>
+          <span>TryHackMe</span>
         </a>
         <a href="https://x.com/ayush_kumar_jha" target="_blank" rel="noopener noreferrer" class="social-link"
-          aria-label="X (Twitter)" style="font-size: 1.1rem;">
-          <i data-lucide="twitter" style="width: 18px; height: 18px;"></i> <span>Twitter</span>
+          aria-label="X (Twitter)" style="font-size: 1rem; display: inline-flex; align-items: center; gap: 8px;">
+          <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          <span>Twitter</span>
         </a>
       </div>
     </div>
-  </main>
 
-  <!-- Footer -->
-  <footer class="footer container" style="border-top: none; margin-top: var(--spacing-xl);">
-    <div class="footer-bottom">
-      <p class="copyright">
+    <footer class="footer-bottom" style="margin-top: 2rem; border-top: none; padding: 0; justify-content: center;">
+      <p class="copyright" style="text-align: center;">
         &copy; <span id="currentYear">2026</span> Ayush Kumar Jha. Designed for restraint.
       </p>
-    </div>
-  </footer>
+    </footer>
+  </main>
+
+
 
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
